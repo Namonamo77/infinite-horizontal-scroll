@@ -39,4 +39,27 @@ body {
 }
 [data-animated= "true"] .scroller__inner {
     flex-wrap: nowrap;
+    animation: scroll var(--animation-duration, 30s) var(--animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction= "right"]{
+    --animation-direction: reverse;
+}
+.scroller[data-direction= "left"]{
+    --animation-direction: forwards;
+}
+.scroller[data-speed= "slow"]{
+    --animation-duration: 60s;
+}
+.scroller[data-speed= "fast"]{
+    --animation-duration: 20s;
+}
+.scroller[data-speed= "middle"]{
+    --animation-duration: 40s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(-100%);
+    }
 }
